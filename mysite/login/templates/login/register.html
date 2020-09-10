@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'register/css/register.css' %}" rel="stylesheet">
+    <title>CMDB注册</title>
+</head>
+<body>
+    <!--<h1>这是register.html页面</h1>-->
+    <div class="container">
+        <div class="col">
+            <form method="POST" class="form-register" action="{% url 'loginapp:register' %}">
+                {% csrf_token %}
+                <h3 class="text-center">欢迎注册！</h3>
+                <div class="form-group">
+                    <label for="id_username">用户名：</label>
+                    <input type="text" class="form-control" name="username" id="id_username" placeholder="Username" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="id_password">密  码：</label>
+                    <input type="password" class="form-control" name="password" id="id_password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_password2">确认密码：</label>
+                    <input type="password" class="form-control" name="password2" id="id_password2" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label>邮  箱：</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <tr>
+                        <td>性别：</td>
+                        <td>
+                            <input type="radio" name="sex" id="male" value="male">
+                            <label for="male">男</label>
+                            &nbsp;
+                            <input type="radio" name="sex" id="female" value="female">
+                            <label for="female">女</label>
+                        </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <a href="{% url 'loginapp:login' %}">直接登录</a>
+                    <button type="submit" class="btn btn-primary float-right">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
